@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三章 · 最后的拼图</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../mail.css">
+    <link rel="stylesheet" href="../search.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                <div>
+                    <h1>🔥 薪火计划 · 镜界迷踪</h1>
+                    <p class="subtitle">第三章 · 真相的最后一块</p>
+                </div>
+                <button onclick="resetGame()" style="background:#ff4444; border:none; padding:6px 18px; border-radius:12px; color:#fff; cursor:pointer; font-size:0.85rem; font-weight:bold;">
+                    🔄 重新开始
+                </button>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">📋 总览</a>
+                <a href="chapter1.html">📖 第一章</a>
+                <a href="chapter2.html">📖 第二章</a>
+                <a href="chapter3.html" style="background:#ff6b35; color:#0a0e14;">📖 第三章</a>
+            </div>
+            <div style="margin-top:12px; color:#ff6b35; font-weight:bold; background:#1a1a2e; padding:8px 16px; border-radius:8px; display:inline-block; border:1px solid #ff6b35;" id="chapterStatus">
+                📅 第6-7天 · 抉择时刻
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard" style="grid-template-columns:1fr 1fr;">
+                <div class="panel">
+                    <h2>🧩 拼图完成</h2>
+                    <div style="background:#0a0a14; padding:20px; border-radius:10px; line-height:2; max-height:500px; overflow-y:auto;">
+                        <p style="color:#66cc88;">✅ 你拼出了完整的画面：</p>
+                        <hr style="border-color:#2a2a3a; margin:8px 0;">
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #ff6b35; margin-bottom:10px;">
+                            <p style="color:#ff6b35; font-weight:bold;">🔬 薪火计划</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">学校在秘密进行病毒改造实验，代号"NX-7"。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 但具体内容还不清楚...</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #a47aff; margin-bottom:10px;">
+                            <p style="color:#a47aff; font-weight:bold;">👁️ 镜界眼镜</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">戴上后能看到改造者的颜色分类。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 蓝色、红色、白色...代表什么？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #ff8844; margin-bottom:10px;">
+                            <p style="color:#ff8844; font-weight:bold;">🟣 紫斑的真相</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">出现紫斑的人会被带去"治疗"，实际上是强制改造。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 失败的话会怎样？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #ffcc66; margin-bottom:10px;">
+                            <p style="color:#ffcc66; font-weight:bold;">🔑 最后的线索</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">密码本第48页的碎片：<span style="font-family:'Courier New',monospace; color:#66dd88;">1987 05 15</span></p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 这串数字是钥匙...</p>
+                        </div>
+
+                        <div style="background:#1a1a2e; padding:12px; border-radius:6px; border:1px solid #ff6b35; margin-top:8px;">
+                            <p style="color:#ff6b35; font-size:0.9rem;">⚠️ 王瑞琦失联了</p>
+                            <p style="color:#aabbcc; font-size:0.85rem;">她最后发来的消息："他们发现我了..."</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 你必须做出选择</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>⚖️ 终极抉择</h2>
+                    <div style="background:#0a0a14; padding:20px; border-radius:10px; line-height:2; max-height:500px; overflow-y:auto;">
+                        <p style="color:#ff6b35; font-size:1.1rem;">🔥 薪火计划的真相已经在你面前</p>
+                        <hr style="border-color:#2a2a3a; margin:8px 0;">
+
+                        <div style="background:#1a1a2e; padding:16px; border-radius:8px; margin:12px 0;">
+                            <p style="color:#aabbcc; font-size:0.95rem;">📊 你掌握的证据：</p>
+                            <ul style="color:#aabbcc; margin-left:20px; font-size:0.9rem;" id="evidenceList">
+                                <li>🔐 密码纸条 → "THEY ARE CHANGING US"</li>
+                                <li>🟣 紫斑照片 → 证明"治疗"是改造</li>
+                                <li>👓 眼镜观察记录 → 颜色分类</li>
+                                <li>🧪 实验楼照片 → NX-7试管</li>
+                                <li>📋 分班数据 → 颜色决定班级</li>
+                                <li>🔑 保险柜密码 → 19870515</li>
+                            </ul>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #ff4444; margin:12px 0;">
+                            <p style="color:#ff4444;">⚠️ 王瑞琦被抓了</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">你听到消息：昨晚有人潜入校长办公室被抓住了。</p>
+                            <p style="color:#5a7a8a; font-size:0.85rem;">💬 你还有机会，但必须马上行动！</p>
+                        </div>
+
+                        <p style="color:#dd5555; font-size:1.1rem; margin-top:16px;">⚡ 你选择：</p>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;">
+                            <div style="background:#1a1a2e; padding:14px; border-radius:8px; border-left:3px solid #ff4444; text-align:center;">
+                                <p style="color:#ff4444; font-weight:bold;">💀 独闯</p>
+                                <p style="color:#aabbcc; font-size:0.85rem;">独自去救王瑞琦<br>可能死亡</p>
+                                <button onclick="endGame('death')" style="background:#ff4444; border:none; padding:6px 16px; border-radius:4px; color:#fff; cursor:pointer; margin-top:6px;">选择</button>
+                            </div>
+                            <div style="background:#1a1a2e; padding:14px; border-radius:8px; border-left:3px solid #ffcc66; text-align:center;">
+                                <p style="color:#ffcc66; font-weight:bold;">⚔️ 联合</p>
+                                <p style="color:#aabbcc; font-size:0.85rem;">联系外部力量<br>活下来</p>
+                                <button onclick="endGame('survive')" style="background:#ffcc66; border:none; padding:6px 16px; border-radius:4px; color:#0a0e14; cursor:pointer; margin-top:6px;">选择</button>
+                            </div>
+                            <div style="background:#1a1a2e; padding:14px; border-radius:8px; border-left:3px solid #66cc88; text-align:center; grid-column:1/3;">
+                                <p style="color:#66cc88; font-weight:bold;">🔵 接受</p>
+                                <p style="color:#aabbcc; font-size:0.85rem;">接受改造，成为蓝色精英</p>
+                                <button onclick="endGame('assimilate')" style="background:#66cc88; border:none; padding:6px 16px; border-radius:4px; color:#0a0e14; cursor:pointer; margin-top:6px;">选择</button>
+                            </div>
+                        </div>
+
+                        <div id="endingResult" style="margin-top:12px; padding:16px; background:#0a0a14; border-radius:8px; border:1px solid #2a2a3a; display:none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="gameLog">
+            📌 第三章：拼图完成，做出你的选择...
+        </footer>
+    </div>
+
+    <script>
+        function resetGame() {
+            if (confirm('🔄 确定要重新开始吗？所有进度将被清除。')) {
+                localStorage.removeItem('xinhuo_game_save');
+                window.location.href = '../index.html';
+            }
+        }
+
+        function endGame(type) {
+            const resultDiv = document.getElementById('endingResult');
+            resultDiv.style.display = 'block';
+            
+            const endings = {
+                'death': {
+                    title: '💀 死亡轮回',
+                    desc: '你独自冲进校长办公室。里面全是穿防护服的人。你看到王瑞琦被绑在椅子上，但已经...太晚了。你被抓住，注射了NX-7。紫斑蔓延，你变成了活死人。',
+                    color: '#ff4444'
+                },
+                'survive': {
+                    title: '⚔️ 真相大白',
+                    desc: '你联系了媒体，将证据公之于众。薪火计划被彻底曝光，校领导被逮捕。王瑞琦被救出来了，但她永远失去了正常的生活。你活了下来。',
+                    color: '#ffcc66'
+                },
+                'assimilate': {
+                    title: '🔵 蓝色精英',
+                    desc: '你选择了接受改造。智力大幅提升，你成为了薪火计划的继承者。但每当看到镜子里蓝色的眼睛，你都会想起王瑞琦最后的眼神。',
+                    color: '#66cc88'
+                }
+            };
+
+            const ending = endings[type];
+            resultDiv.innerHTML = `
+                <h3 style="color:${ending.color};">${ending.title}</h3>
+                <p style="color:#aabbcc; margin-top:8px;">${ending.desc}</p>
+                <p style="color:#5a7a8a; margin-top:12px; font-size:0.85rem;">🏁 游戏结束 · 感谢游玩「薪火计划 · 镜界迷踪」</p>
+                <button onclick="resetAndRestart()" style="background:#ff6b35; border:none; padding:8px 20px; border-radius:6px; color:#0a0e14; cursor:pointer; margin-top:12px;">🔄 重新开始</button>
+            `;
+            
+            document.getElementById('gameLog').innerHTML = `📌 [结局] ${ending.title}`;
+            
+            // 标记游戏结束并保存
+            localStorage.removeItem('xinhuo_game_save');
+            // 保存结束状态
+            localStorage.setItem('xinhuo_game_save', JSON.stringify({
+                gameEnded: true,
+                ending: type,
+                saveTime: new Date().toISOString()
+            }));
+        }
+
+        function resetAndRestart() {
+            localStorage.removeItem('xinhuo_game_save');
+            window.location.href = '../index.html';
+        }
+
+        function checkChapterAccess() {
+            const saved = localStorage.getItem('xinhuo_game_save');
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    const currentDay = data.currentDay || 1;
+                    
+                    if (data.gameEnded) {
+                        document.getElementById('chapterStatus').innerHTML = '🏁 游戏已结束 · 请重新开始';
+                        document.getElementById('chapterStatus').style.borderColor = '#ff4444';
+                        document.getElementById('chapterStatus').style.color = '#ff4444';
+                        document.querySelector('.dashboard').innerHTML = `
+                            <div class="panel" style="grid-column:1/-1; text-align:center; padding:60px 20px;">
+                                <h2 style="color:#ff4444;">🏁 游戏已结束</h2>
+                                <p style="color:#aabbcc; margin-top:20px; font-size:1.1rem;">
+                                    点击右上角 "重新开始" 再来一次。
+                                </p>
+                                <button onclick="resetGame()" style="background:#ff6b35; border:none; padding:12px 30px; border-radius:8px; color:#0a0e14; font-weight:bold; cursor:pointer; margin-top:20px;">
+                                    🔄 重新开始
+                                </button>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    if (currentDay >= 6) {
+                        document.getElementById('chapterStatus').innerHTML = `📅 第${currentDay}天 · 第3章（可查看）`;
+                        document.getElementById('chapterStatus').style.borderColor = '#66cc88';
+                        document.getElementById('chapterStatus').style.color = '#66cc88';
+                    } else {
+                        document.getElementById('chapterStatus').innerHTML = `🔒 需要第6天才能解锁 · 当前第${currentDay}天`;
+                        document.getElementById('chapterStatus').style.borderColor = '#ff4444';
+                        document.getElementById('chapterStatus').style.color = '#ff4444';
+                        document.querySelector('.dashboard').innerHTML = `
+                            <div class="panel" style="grid-column:1/-1; text-align:center; padding:60px 20px;">
+                                <h2 style="color:#ff4444;">🔒 此章已锁定</h2>
+                                <p style="color:#aabbcc; margin-top:20px; font-size:1.1rem;">
+                                    你需要推进到第6天才能查看第三章内容。<br><br>
+                                    当前第 ${currentDay} 天。<br><br>
+                                    <span style="color:#ff8844;">回到主页面消耗时间，推进天数。</span>
+                                </p>
+                                <button onclick="location.href='../index.html'" style="background:#ff6b35; border:none; padding:12px 30px; border-radius:8px; color:#0a0e14; font-weight:bold; cursor:pointer; margin-top:20px;">
+                                    📋 返回主页面
+                                </button>
+                            </div>
+                        `;
+                    }
+                } catch (e) {}
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkChapterAccess();
+            document.getElementById('gameLog').innerHTML = '📌 [第三章] 拼图完成。真相就在眼前，但代价是什么？';
+        });
+    </script>
+</body>
+</html>

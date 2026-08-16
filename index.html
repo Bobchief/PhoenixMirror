@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix · Mirror · 薪火·镜界</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mail.css">
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <!-- 语言选择 -->
+    <div id="langSelector" style="position:fixed; top:10px; right:20px; z-index:100; background:#1a1a2e; padding:6px 12px; border-radius:20px; border:1px solid #ff6b35;">
+        <button onclick="setLanguage('zh')" id="langZh" style="background:transparent; border:none; color:#ff6b35; cursor:pointer; font-weight:bold; padding:2px 8px;">中文</button>
+        <span style="color:#4a5a6a;">|</span>
+        <button onclick="setLanguage('en')" id="langEn" style="background:transparent; border:none; color:#8899aa; cursor:pointer; padding:2px 8px;">English</button>
+    </div>
+
+    <!-- 游戏开始说明 -->
+    <div id="introOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:9999; overflow-y:auto; padding:20px;">
+        <div style="max-width:800px; margin:40px auto; background:#12121f; border-radius:16px; padding:40px; border:1px solid #ff6b35; box-shadow:0 0 60px rgba(255,107,53,0.15);">
+            <div style="text-align:center; margin-bottom:30px;">
+                <h1 style="color:#ff6b35; font-size:2.4rem; letter-spacing:6px;" id="introTitle">🔥 PHOENIX · MIRROR</h1>
+                <p style="color:#8899aa; font-size:1.1rem; letter-spacing:4px;" id="introSub">—— 薪火 · 镜界 ——</p>
+                <div style="border-bottom:1px solid #2a2a3a; margin:20px 0;"></div>
+            </div>
+
+            <div style="color:#c8d0d9; line-height:2;" id="introContent">
+                <h2 style="color:#ff6b35; font-size:1.2rem;">📖 故事背景</h2>
+                <p>新世纪，科学家开发出"NX-7"病毒改造人类。一副名为<strong style="color:#ffcc66;">"镜界"</strong>的眼镜可以洞察真相：</p>
+                <ul style="color:#aabbcc; margin-left:20px; margin-top:8px;">
+                    <li>🔵 <strong style="color:#4488ff;">蓝色</strong> = 智力改造成功</li>
+                    <li>🔴 <strong style="color:#ff4444;">红色</strong> = 力量改造成功</li>
+                    <li>⚪ <strong style="color:#aaaaaa;">白色</strong> = 改造失败（活死人）</li>
+                </ul>
+                <p style="margin-top:12px;">你所在的学校推行"<strong style="color:#ff6b35;">薪火计划</strong>"，但你在调查中发现——这根本不是教育项目，而是一场用学生做病毒改造的阴谋。</p>
+                <p style="color:#ff8844;">你只有 <strong>7天</strong> 时间揭开真相。</p>
+
+                <div style="border-bottom:1px solid #2a2a3a; margin:20px 0;"></div>
+
+                <h2 style="color:#ff6b35; font-size:1.2rem;">🎮 核心玩法</h2>
+                <ul style="color:#aabbcc; margin-left:20px;">
+                    <li><strong style="color:#ffcc66;">⏰ 时间管理</strong> — 每天分上午/下午/晚上，时间有限</li>
+                    <li><strong style="color:#ffcc66;">📍 地点移动</strong> — 点击路线图节点移动，消耗时间</li>
+                    <li><strong style="color:#ffcc66;">📨 情报邮件</strong> — 阅读邮件推进剧情</li>
+                    <li><strong style="color:#ffcc66;">🔍 密码学搜索</strong> — 输入关键词或密文破解真相</li>
+                </ul>
+
+                <div style="border-bottom:1px solid #2a2a3a; margin:20px 0;"></div>
+
+                <h2 style="color:#ff6b35; font-size:1.2rem;">⚠️ 重要提示</h2>
+                <ul style="color:#aabbcc; margin-left:20px;">
+                    <li>⏱️ <strong style="color:#ff8844;">时间耗尽</strong> 自动进入下一时段/下一天</li>
+                    <li>📅 <strong style="color:#ff8844;">天数越晚，结局越不利</strong></li>
+                    <li>📍 移动需要时间，<strong style="color:#ffcc66;">规划路线很重要</strong></li>
+                    <li>📖 游戏会<strong style="color:#66cc88;">自动存档</strong></li>
+                    <li>🔄 右上角可随时<strong style="color:#ff4444;">重新开始</strong></li>
+                </ul>
+
+                <button id="startGameBtn" style="display:block; margin:30px auto 0; background:#ff6b35; border:none; padding:14px 50px; border-radius:10px; color:#0a0e14; font-size:1.2rem; font-weight:bold; cursor:pointer; transition:all 0.3s;"
+                        onmouseover="this.style.background='#ff8a5c';this.style.transform='scale(1.02)'"
+                        onmouseout="this.style.background='#ff6b35';this.style.transform='scale(1)'" id="startBtn">
+                    🔥 开始调查
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主游戏 -->
+    <div id="app">
+        <header>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                <div>
+                    <h1 style="font-size:1.4rem;" id="gameTitle">🔥 PHOENIX · MIRROR</h1>
+                    <p class="subtitle" style="font-size:0.8rem;" id="gameSub">—— 薪火 · 镜界 ——</p>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
+                    <button onclick="showIntro()" style="background:#2a2a3a; border:1px solid #5a6a7a; padding:4px 12px; border-radius:12px; color:#aabbcc; cursor:pointer; font-size:0.7rem;" id="btnHelp">📖 说明</button>
+                    <button onclick="resetGame()" style="background:#ff4444; border:none; padding:4px 12px; border-radius:12px; color:#fff; cursor:pointer; font-size:0.7rem; font-weight:bold;" id="btnReset">🔄 重新开始</button>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" style="background:#2a4a5a;" id="navHome">📋 总览</a>
+                <a href="pages/chapter1.html" id="navCh1">📖 第一章</a>
+                <a href="pages/chapter2.html" id="navCh2">📖 第二章</a>
+                <a href="pages/chapter3.html" id="navCh3">📖 第三章</a>
+            </div>
+            <!-- 时间和地点信息 -->
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; align-items:center;">
+                <div id="timeDisplay" style="color:#ff6b35; font-weight:bold; background:#1a1a2e; padding:6px 14px; border-radius:8px; border:1px solid #ff6b35; font-size:0.85rem;">
+                    📅 第1天 · 上午 · 剩余：15
+                </div>
+                <div id="dayProgress" style="color:#5a7a8a; font-size:0.8rem;">
+                    第 1 / 7 天
+                </div>
+                <div id="currentLocation" style="color:#66cc88; font-size:0.8rem; background:#0a0a14; padding:4px 12px; border-radius:12px; border:1px solid #2a3a3a;">
+                    📍 当前位置：教室
+                </div>
+                <div style="color:#5a7a8a; font-size:0.65rem; background:#0a0a14; padding:2px 10px; border-radius:12px;" id="saveInfo">
+                    💾 自动存档
+                </div>
+            </div>
+            <div style="color:#ff8844; font-size:0.7rem; margin-top:4px;" id="timeWarning">
+                ⚡ 时间紧张！移动消耗时间，规划路线
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <!-- 左栏：路线图 -->
+                <div class="panel" id="mapPanel" style="grid-row:span 2;">
+                    <h2 id="mapTitle">🗺️ 校园路线图</h2>
+                    <div id="mapContainer" style="background:#0a0a14; border-radius:10px; padding:16px; min-height:350px; position:relative;">
+                        <!-- 路线图由JS动态生成 -->
+                        <div id="mapCanvas" style="position:relative; width:100%; height:350px; background:#0f0f1a; border-radius:8px; border:1px solid #1a2a3a; overflow:hidden;">
+                            <!-- 节点和连线由JS绘制 -->
+                        </div>
+                        <div style="margin-top:10px; color:#5a7a8a; font-size:0.7rem; text-align:center;" id="mapHint">
+                            💡 点击节点移动 · 消耗时间
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右栏上：情报终端 -->
+                <div class="panel" id="mailPanel">
+                    <h2 id="mailTitle">📨 情报终端</h2>
+                    <div id="mailList"></div>
+                    <div id="mailDetail"></div>
+                </div>
+
+                <!-- 右栏下：搜索 -->
+                <div class="panel" id="searchPanel">
+                    <h2 id="searchTitle">🔍 密码学搜索</h2>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="输入关键词或密文...">
+                        <button id="searchBtn">解析</button>
+                    </div>
+                    <div id="searchResult"></div>
+                </div>
+
+                <!-- 底部：背包 -->
+                <div class="panel" id="inventoryPanel" style="grid-column:1/-1;">
+                    <h2 id="inventoryTitle">🎒 证据背包</h2>
+                    <div id="inventoryList"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="gameLog">
+            📌 系统启动：第1天，你开始注意到异常...
+        </footer>
+    </div>
+
+    <script src="assets/data/gameData.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/timeSystem.js"></script>
+    <script src="js/mapSystem.js"></script>
+    <script src="js/mailSystem.js"></script>
+    <script src="js/searchSystem.js"></script>
+    <script src="js/inventorySystem.js"></script>
+    <script src="js/game.js"></script>
+    <script>
+        function showIntro() {
+            document.getElementById('introOverlay').style.display = 'block';
+        }
+
+        function hideIntro() {
+            document.getElementById('introOverlay').style.display = 'none';
+            localStorage.setItem('xinhuo_intro_seen', 'true');
+        }
+
+        function resetGame() {
+            if (confirm(window.LANG ? window.LANG.confirmReset : '🔄 确定要重新开始吗？')) {
+                if (window.timeSystem) {
+                    window.timeSystem.resetGame();
+                } else {
+                    localStorage.removeItem('xinhuo_game_save');
+                    window.location.reload();
+                }
+            }
+        }
+
+        // 语言切换
+        function setLanguage(lang) {
+            if (window.setGameLanguage) {
+                window.setGameLanguage(lang);
+            }
+            // 更新按钮样式
+            document.getElementById('langZh').style.color = lang === 'zh' ? '#ff6b35' : '#8899aa';
+            document.getElementById('langEn').style.color = lang === 'en' ? '#ff6b35' : '#8899aa';
+            document.getElementById('langZh').style.fontWeight = lang === 'zh' ? 'bold' : 'normal';
+            document.getElementById('langEn').style.fontWeight = lang === 'en' ? 'bold' : 'normal';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检测语言
+            const savedLang = localStorage.getItem('xinhuo_lang') || 'zh';
+            setLanguage(savedLang);
+
+            // 首次打开显示说明
+            const introSeen = localStorage.getItem('xinhuo_intro_seen');
+            if (!introSeen) {
+                setTimeout(showIntro, 300);
+            }
+
+            document.getElementById('startGameBtn').addEventListener('click', hideIntro);
+
+            // URL搜索参数
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchKeyword = urlParams.get('search');
+            if (searchKeyword) {
+                setTimeout(() => {
+                    document.getElementById('searchInput').value = searchKeyword;
+                    document.getElementById('searchBtn').click();
+                    if (window.updateLog) window.updateLog(`🔍 从章节跳转解析：「${searchKeyword}」`);
+                }, 500);
+            }
+        });
+
+        window.setLanguage = setLanguage;
+        window.showIntro = showIntro;
+        window.hideIntro = hideIntro;
+        window.resetGame = resetGame;
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二章 · 拼凑碎片</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../mail.css">
+    <link rel="stylesheet" href="../search.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                <div>
+                    <h1>🔥 薪火计划 · 镜界迷踪</h1>
+                    <p class="subtitle">第二章 · 碎片正在拼合</p>
+                </div>
+                <button onclick="resetGame()" style="background:#ff4444; border:none; padding:6px 18px; border-radius:12px; color:#fff; cursor:pointer; font-size:0.85rem; font-weight:bold;">
+                    🔄 重新开始
+                </button>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">📋 总览</a>
+                <a href="chapter1.html">📖 第一章</a>
+                <a href="chapter2.html" style="background:#ff6b35; color:#0a0e14;">📖 第二章</a>
+                <a href="chapter3.html">📖 第三章</a>
+            </div>
+            <div style="margin-top:12px; color:#ff6b35; font-weight:bold; background:#1a1a2e; padding:8px 16px; border-radius:8px; display:inline-block; border:1px solid #ff6b35;" id="chapterStatus">
+                📅 第3-4天 · 拼凑真相
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard" style="grid-template-columns:1fr 1fr;">
+                <div class="panel">
+                    <h2>📋 调查碎片</h2>
+                    <div style="background:#0a0a14; padding:20px; border-radius:10px; line-height:2; max-height:500px; overflow-y:auto;">
+                        <p style="color:#ffcc66;">🔍 你收集到的线索：</p>
+                        <hr style="border-color:#2a2a3a; margin:8px 0;">
+
+                        <div style="background:#0f0f1a; padding:10px; border-radius:6px; margin-bottom:8px; border-left:3px solid #ff8844;">
+                            <p style="color:#aabbcc; font-size:0.9rem;">📄 <strong>碎片1：密码纸条</strong></p>
+                            <p style="font-family:'Courier New',monospace; color:#66dd88; font-size:0.85rem;">51207 8511 204 105 1914</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 这串数字可能隐藏着信息...</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:10px; border-radius:6px; margin-bottom:8px; border-left:3px solid #a47aff;">
+                            <p style="color:#aabbcc; font-size:0.9rem;">🟣 <strong>碎片2：紫斑</strong></p>
+                            <p style="color:#aabbcc; font-size:0.85rem;">至少有3个人出现了紫色斑点，都被带去"治疗"后回来就变了。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 "治疗"到底在做什么？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:10px; border-radius:6px; margin-bottom:8px; border-left:3px solid #66cc88;">
+                            <p style="color:#aabbcc; font-size:0.9rem;">🔵 <strong>碎片3：眼镜颜色</strong></p>
+                            <p style="color:#aabbcc; font-size:0.85rem;">体检时戴的眼镜，不同人看到的颜色不一样。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 为什么颜色会不同？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:10px; border-radius:6px; border-left:3px solid #ff6b35;">
+                            <p style="color:#aabbcc; font-size:0.9rem;">🧪 <strong>碎片4：实验楼</strong></p>
+                            <p style="color:#aabbcc; font-size:0.85rem;">深夜看到实验楼地下室有灯光，隐约看到"NX-7"的标签。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 NX-7是什么？</p>
+                        </div>
+
+                        <div style="margin-top:12px; background:#1a1a2e; padding:10px; border-radius:6px; border:1px dashed #ff8844;">
+                            <p style="color:#ff8844; font-size:0.85rem;">❓ 还缺少关键的拼图...</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem;">💡 继续搜索关键词，收集更多碎片</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>🌀 迷惑的信息</h2>
+                    <div style="background:#0a0a14; padding:20px; border-radius:10px; line-height:2; max-height:500px; overflow-y:auto;">
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a; margin-bottom:12px;">
+                            <p style="color:#6a7a8a;">🗣️ 同学的闲聊</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">"你听说了吗？学校要新建一个体育馆。"<br>
+                            "真的假的？钱从哪来？"<br>
+                            "不知道，好像是上面拨的款。"</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem; margin-top:4px;">💬 体育馆和实验楼离得很近...</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a; margin-bottom:12px;">
+                            <p style="color:#6a7a8a;">📰 学校公告</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">"为了提升教学质量，学校将引进新的教学系统。请各位同学配合完成相关测试。"</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem; margin-top:4px;">💬 又是测试？上周不是刚测过吗？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a; margin-bottom:12px;">
+                            <p style="color:#6a7a8a;">👤 奇怪的访客</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">今天学校来了几个穿黑西装的人，直接去了校长办公室。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem; margin-top:4px;">💬 他们是谁？为什么校长的表情很紧张？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a;">
+                            <p style="color:#6a7a8a;">📱 王瑞琦的消息</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">"我破解了那个密码！你绝对想不到是什么..."</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem; margin-top:4px;">💬 她破解了什么？</p>
+                        </div>
+
+                        <div style="margin-top:12px; background:#1a1a2e; padding:12px; border-radius:6px; border:1px solid #2a2a3a;">
+                            <p style="color:#5a7a8a; font-size:0.85rem;">📅 第3-4天 · 拼凑碎片</p>
+                            <p style="color:#ff8844; font-size:0.85rem;">⏱ 需要推进到第3-4天才能看到此章内容</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="gameLog">
+            📌 第二章：碎片正在拼合，但还缺关键一块...
+        </footer>
+    </div>
+
+    <script>
+        function resetGame() {
+            if (confirm('🔄 确定要重新开始吗？所有进度将被清除。')) {
+                localStorage.removeItem('xinhuo_game_save');
+                window.location.href = '../index.html';
+            }
+        }
+
+        function checkChapterAccess() {
+            const saved = localStorage.getItem('xinhuo_game_save');
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    const currentDay = data.currentDay || 1;
+                    
+                    if (data.gameEnded) {
+                        document.getElementById('chapterStatus').innerHTML = '🏁 游戏已结束 · 请重新开始';
+                        document.getElementById('chapterStatus').style.borderColor = '#ff4444';
+                        document.getElementById('chapterStatus').style.color = '#ff4444';
+                        document.querySelector('.dashboard').innerHTML = `
+                            <div class="panel" style="grid-column:1/-1; text-align:center; padding:60px 20px;">
+                                <h2 style="color:#ff4444;">🏁 游戏已结束</h2>
+                                <p style="color:#aabbcc; margin-top:20px; font-size:1.1rem;">
+                                    点击右上角 "重新开始" 再来一次。
+                                </p>
+                                <button onclick="resetGame()" style="background:#ff6b35; border:none; padding:12px 30px; border-radius:8px; color:#0a0e14; font-weight:bold; cursor:pointer; margin-top:20px;">
+                                    🔄 重新开始
+                                </button>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    if (currentDay >= 3 && currentDay <= 5) {
+                        document.getElementById('chapterStatus').innerHTML = `📅 第${currentDay}天 · 第2章（可查看）`;
+                        document.getElementById('chapterStatus').style.borderColor = '#66cc88';
+                        document.getElementById('chapterStatus').style.color = '#66cc88';
+                    } else if (currentDay > 5) {
+                        document.getElementById('chapterStatus').innerHTML = '📅 第3-5天内容 · 已解锁';
+                        document.getElementById('chapterStatus').style.borderColor = '#66cc88';
+                        document.getElementById('chapterStatus').style.color = '#66cc88';
+                    } else {
+                        document.getElementById('chapterStatus').innerHTML = `🔒 需要第3天才能解锁 · 当前第${currentDay}天`;
+                        document.getElementById('chapterStatus').style.borderColor = '#ff4444';
+                        document.getElementById('chapterStatus').style.color = '#ff4444';
+                        document.querySelector('.dashboard').innerHTML = `
+                            <div class="panel" style="grid-column:1/-1; text-align:center; padding:60px 20px;">
+                                <h2 style="color:#ff4444;">🔒 此章已锁定</h2>
+                                <p style="color:#aabbcc; margin-top:20px; font-size:1.1rem;">
+                                    你需要推进到第3天才能查看第二章内容。<br><br>
+                                    当前第 ${currentDay} 天。<br><br>
+                                    <span style="color:#ff8844;">回到主页面消耗时间，推进天数。</span>
+                                </p>
+                                <button onclick="location.href='../index.html'" style="background:#ff6b35; border:none; padding:12px 30px; border-radius:8px; color:#0a0e14; font-weight:bold; cursor:pointer; margin-top:20px;">
+                                    📋 返回主页面
+                                </button>
+                            </div>
+                        `;
+                    }
+                } catch (e) {}
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkChapterAccess();
+            document.getElementById('gameLog').innerHTML = '📌 [第二章] 你收集了一些碎片，但还无法拼出完整画面。继续调查！';
+        });
+    </script>
+</body>
+</html>

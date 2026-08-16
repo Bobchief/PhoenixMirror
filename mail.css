@@ -1,0 +1,83 @@
+.mail-list {
+    max-height: 260px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.mail-item {
+    background: #0f0f1a;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 3px solid #ff6b35;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.mail-item:hover {
+    background: #1a1a2e;
+    transform: translateX(4px);
+}
+
+.mail-item .mail-sender {
+    color: #ff6b35;
+    font-weight: bold;
+}
+
+.mail-item .mail-subject {
+    color: #aabbcc;
+    margin-left: 12px;
+}
+
+.mail-item .mail-date {
+    float: right;
+    color: #5a6a7a;
+    font-size: 0.8rem;
+}
+
+.mail-detail {
+    background: #0a0a14;
+    padding: 16px;
+    border-radius: 8px;
+    min-height: 100px;
+    border: 1px solid #2a2a3a;
+    margin-top: 8px;
+    color: #b0c0d0;
+    line-height: 1.8;
+}
+
+.mail-detail .highlight {
+    color: #ffcc66;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px dashed #ffcc66;
+    transition: all 0.2s;
+}
+
+.mail-detail .highlight:hover {
+    color: #ffdd88;
+    text-shadow: 0 0 12px rgba(255, 204, 102, 0.3);
+}
+
+.mail-detail .cipher-text {
+    display: inline-block;
+    background: #1a1a2e;
+    padding: 2px 12px;
+    border-radius: 12px;
+    color: #ff6b35;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    margin: 2px 4px 2px 0;
+    border: 1px solid #ff6b35;
+    cursor: pointer;
+}
+
+.mail-detail .distractor {
+    color: #6a7a8a;
+    font-style: italic;
+    background: #0f0f1a;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #4a5a6a;
+    margin: 8px 0;
+}

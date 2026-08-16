@@ -1,0 +1,114 @@
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px 16px;
+    background: #0a0a14;
+    border: 1px solid #2a2a3a;
+    border-radius: 8px;
+    color: #c8d0d9;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+    font-family: 'Courier New', monospace;
+}
+
+.search-bar input:focus {
+    border-color: #ff6b35;
+    box-shadow: 0 0 16px rgba(255, 107, 53, 0.2);
+}
+
+.search-bar button {
+    padding: 10px 24px;
+    background: #ff6b35;
+    border: none;
+    border-radius: 8px;
+    color: #0a0e14;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-bar button:hover {
+    background: #ff8a5c;
+    box-shadow: 0 0 24px rgba(255, 107, 53, 0.3);
+}
+
+.search-result {
+    background: #0a0a14;
+    padding: 16px;
+    border-radius: 8px;
+    min-height: 120px;
+    border: 1px solid #2a2a3a;
+    color: #b0c0d0;
+    line-height: 1.8;
+}
+
+.search-result .clue-item {
+    background: #0f0f1a;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border-left: 3px solid #ff6b35;
+}
+
+.search-result .clue-item strong {
+    color: #ffcc66;
+}
+
+.search-result .decryption-result {
+    background: #1a1a2e;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid #ff6b35;
+    margin-top: 8px;
+    color: #66dd88;
+    font-family: 'Courier New', monospace;
+}
+
+.inventory-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.inventory-item {
+    background: #0f0f1a;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #ff6b35;
+    color: #ff6b35;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: fadeIn 0.4s ease;
+}
+
+.inventory-item .badge {
+    background: #2a2a3a;
+    border-radius: 10px;
+    padding: 0 8px;
+    font-size: 0.7rem;
+    color: #aac0d0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.time-cost {
+    color: #ff8844;
+    font-size: 0.8rem;
+    background: #1a1a2e;
+    padding: 2px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-left: 8px;
+    border: 1px solid #ff8844;
+}

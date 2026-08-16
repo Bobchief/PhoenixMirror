@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一章 · 奇怪的日常</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../mail.css">
+    <link rel="stylesheet" href="../search.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                <div>
+                    <h1>🔥 薪火计划 · 镜界迷踪</h1>
+                    <p class="subtitle">第一章 · 平凡的校园，不平凡的事</p>
+                </div>
+                <button onclick="resetGame()" style="background:#ff4444; border:none; padding:6px 18px; border-radius:12px; color:#fff; cursor:pointer; font-size:0.85rem; font-weight:bold;">
+                    🔄 重新开始
+                </button>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">📋 总览</a>
+                <a href="chapter1.html" style="background:#ff6b35; color:#0a0e14;">📖 第一章</a>
+                <a href="chapter2.html">📖 第二章</a>
+                <a href="chapter3.html">📖 第三章</a>
+            </div>
+            <div style="margin-top:12px; color:#ff6b35; font-weight:bold; background:#1a1a2e; padding:8px 16px; border-radius:8px; display:inline-block; border:1px solid #ff6b35;" id="chapterStatus">
+                📅 第1天 · 普通的一天？
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard" style="grid-template-columns:1fr 1fr;">
+                <div class="panel">
+                    <h2>📝 你的观察日记</h2>
+                    <div style="background:#0a0a14; padding:20px; border-radius:10px; line-height:2; max-height:500px; overflow-y:auto;">
+                        <p style="color:#5a7a8a; font-size:0.85rem;">—— 第1天 · 上午 ——</p>
+                        <hr style="border-color:#2a2a3a; margin:8px 0;">
+                        
+                        <p>🕐 <strong>07:30</strong> 早读课</p>
+                        <p style="color:#aabbcc; margin-left:12px;">王瑞琦递给我一张纸条："你最近有没有觉得学校怪怪的？"</p>
+                        
+                        <p style="margin-top:10px;">🕐 <strong>09:15</strong> 数学课</p>
+                        <p style="color:#aabbcc; margin-left:12px;">隔壁班的李浩以前数学从来不及格，这次月考居然考了满分。老师表扬他的时候，他笑得很...奇怪。</p>
+                        
+                        <p style="margin-top:10px; color:#6a7a8a; font-style:italic;">💭 可能是他开窍了吧？</p>
+                        
+                        <p style="margin-top:12px;">🕐 <strong>11:30</strong> 午饭时间</p>
+                        <p style="color:#aabbcc; margin-left:12px;">食堂里，火箭班的人突然把桌子掀了。他们力气变得好大...</p>
+                        <p style="color:#6a7a8a; margin-left:12px; font-style:italic;">💬 旁边有人说："好像是昨天体检之后就这样了。"</p>
+                        
+                        <hr style="border-color:#2a2a3a; margin:12px 0;">
+                        <p style="color:#5a7a8a; font-size:0.85rem;">—— 第1天 · 下午 ——</p>
+                        <hr style="border-color:#2a2a3a; margin:8px 0;">
+                        
+                        <p>🕐 <strong>13:30</strong> 图书馆</p>
+                        <p style="color:#aabbcc; margin-left:12px;">我在《密码学入门》里发现一张纸条：<br>
+                        <span style="font-family:'Courier New',monospace; color:#66dd88; cursor:pointer;" onclick="copyToSearch('51207 8511 204 105 1914')">51207 8511 204 105 1914</span></p>
+                        <p style="color:#6a7a8a; margin-left:12px; font-style:italic;">💬 这是什么？看起来像密码...</p>
+                        
+                        <p style="margin-top:12px;">🕐 <strong>15:00</strong> 走廊上</p>
+                        <p style="color:#aabbcc; margin-left:12px;">看到教导主任带着一个同学往实验楼方向走。那个同学的手臂上好像有<span style="color:#a47aff;">紫色</span>的斑点...</p>
+                        
+                        <div style="margin-top:16px; background:#1a1a2e; padding:12px; border-radius:6px; border-left:3px solid #ff8844;">
+                            <p style="color:#ff8844; font-size:0.9rem;">⚠️ 你今天注意到了一些奇怪的事，但一切都还说不通...</p>
+                            <p style="color:#5a7a8a; font-size:0.85rem;">💡 去主页面搜索关键词获取更多线索</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>🌪️ 同时发生的其他事</h2>
+                    <div style="background:#0a0a14; padding:20px; border-radius:10px; line-height:2; max-height:500px; overflow-y:auto;">
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a; margin-bottom:12px;">
+                            <p style="color:#6a7a8a;">📢 广播通知</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">"请各班班长下午2点到教务处开会，讨论下周的运动会安排。"</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem; margin-top:4px;">💬 运动会？这周不是刚开过吗？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a; margin-bottom:12px;">
+                            <p style="color:#6a7a8a;">💬 走廊对话</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">"你听说了吗？高三（7）班有个人退学了。"<br>
+                            "不是退学吧...我听说他是被送走了。"<br>
+                            "送去哪？"<br>
+                            "不知道，教导主任不让说。"</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a; margin-bottom:12px;">
+                            <p style="color:#6a7a8a;">👀 你看到的事</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">下午4点，你看到校长进了实验楼，穿着平时不常穿的<span style="color:#ff8844;">白色防护服</span>。</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem; margin-top:4px;">💬 校长去实验楼干什么？</p>
+                        </div>
+
+                        <div style="background:#0f0f1a; padding:12px; border-radius:6px; border-left:3px solid #4a5a6a;">
+                            <p style="color:#6a7a8a;">📱 手机消息</p>
+                            <p style="color:#aabbcc; font-size:0.9rem;">王瑞琦发来一条消息："我今天去图书馆了，发现一些东西。晚点跟你说。"</p>
+                            <p style="color:#5a7a8a; font-size:0.8rem; margin-top:4px;">💬 她发现了什么？</p>
+                        </div>
+
+                        <div style="margin-top:16px; background:#1a1a2e; padding:12px; border-radius:6px; border:1px solid #2a2a3a;">
+                            <p style="color:#5a7a8a; font-size:0.85rem;">📅 第1天内容</p>
+                            <p style="color:#ff8844; font-size:0.85rem;">⏱ 推进到第2天才能解锁新内容</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="gameLog">
+            📌 第一章：你开始注意到学校的异常...
+        </footer>
+    </div>
+
+    <script>
+        function resetGame() {
+            if (confirm('🔄 确定要重新开始吗？所有进度将被清除。')) {
+                localStorage.removeItem('xinhuo_game_save');
+                window.location.href = '../index.html';
+            }
+        }
+
+        function copyToSearch(text) {
+            window.location.href = `../index.html?search=${encodeURIComponent(text)}`;
+        }
+
+        function checkChapterAccess() {
+            const saved = localStorage.getItem('xinhuo_game_save');
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    const currentDay = data.currentDay || 1;
+                    
+                    if (data.gameEnded) {
+                        document.getElementById('chapterStatus').innerHTML = '🏁 游戏已结束 · 请重新开始';
+                        document.getElementById('chapterStatus').style.borderColor = '#ff4444';
+                        document.getElementById('chapterStatus').style.color = '#ff4444';
+                        return;
+                    }
+                    
+                    if (currentDay > 2) {
+                        document.getElementById('chapterStatus').innerHTML = '📅 第1-2天内容 · 已解锁';
+                        document.getElementById('chapterStatus').style.borderColor = '#66cc88';
+                        document.getElementById('chapterStatus').style.color = '#66cc88';
+                    } else {
+                        document.getElementById('chapterStatus').innerHTML = `📅 第${currentDay}天 · 第1章`;
+                    }
+                } catch (e) {}
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkChapterAccess();
+            document.getElementById('gameLog').innerHTML = '📌 [第一章] 第1天。你看到了一些奇怪的事，但还不确定这意味着什么。';
+        });
+    </script>
+</body>
+</html>
